@@ -17,6 +17,7 @@ ClassLoader::addDirectories(array(
 	app_path().'/controllers',
 	app_path().'/models',
 	app_path().'/database/seeds',
+	app_path().'/library',
 
 ));
 
@@ -79,3 +80,6 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+//fazer a chamada das macros que criamos em library/macros.php
+require app_path(). '/macros.php';

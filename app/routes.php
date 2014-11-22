@@ -13,5 +13,12 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('home/principal');
 });
+
+Route::get('principal', 'HomeController@principal');
+
+Route::resource('negocio', 'NegociosController', array('except' =>array('show')));
+Route::resource('perfil', 'PerfisController', array('except' =>array('show')));
+Route::resource('acao', 'AcoesController', array('except' =>array('show')));
+Route::resource('anuncio', 'AnunciosController');

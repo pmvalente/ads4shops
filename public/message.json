@@ -1,0 +1,13 @@
+{
+  "MSG001":"O registo não pode ser gravado. Verifique os erros e tente novamente.",
+  "MSG002":"O registo foi gravado com sucesso!",
+  "MSG003":"O registo procurado não pode ser encontrado. Tente novamente.",
+  "MSG004":"O registo não pode ser atualizado. Verifique os erros e tente novamente.",
+  "MSG005":"O registo foi atualizado com sucesso!",
+  "MSG006":"O registo foi apagado com sucesso!",
+  "MSG007":"Ocorreu algum erro!!! O registro não pode ser apagado.",
+  "MSG008":"Você fez login com sucesso!",
+  "MSG009":"Username e/ou senha incorretos.",
+  "MSG010":"Você foi desligado do sistema.",
+  "MSG011":"Não há informações registadas no sistema."
+}

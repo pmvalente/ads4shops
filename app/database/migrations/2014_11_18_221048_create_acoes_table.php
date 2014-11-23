@@ -17,7 +17,6 @@ class CreateAcoesTable extends Migration {
 			$table->increments('id');
 			$table->string('nome');
 			$table->string('metodo');
-			$table->timestamps();
 		});
 	}
 

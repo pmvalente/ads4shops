@@ -4,10 +4,10 @@ class  Perfil extends BaseModel
 {
     protected $table = 'perfis';
 
-    protected $fillable = array('descricao');
+    protected $fillable = array('nome');
 
     public static $rules = array(
-        'descricao' => 'required|min:3|max:45',
+        'nome' => 'required|min:3|max:45',
     );
 
     public function utilizadores(){

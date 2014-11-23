@@ -22,7 +22,6 @@ class CreateUtilizadoresTable extends Migration {
 			$table->string('password', 80);
 			$table->boolean('ativo');
 			$table->integer('perfil_id')->unsigned();
-			$table->timestamps();
 
 			$table->foreign('negocio_id')->references('id')->on('negocios')->on_delete('restrict');
 			$table->foreign('perfil_id')->references('id')->on('perfis')->on_delete('restrict');

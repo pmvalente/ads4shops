@@ -1,13 +1,13 @@
 <?php
 
-class NegociosController extends BaseController
+class PerfisController extends BaseController
 {
-    protected $negocio;
+    protected $perfil;
 
-    public function __construct(Negocio $negocio)
+    public function __construct(Perfil $perfil)
     {
         parent::__construct();
-        $this->negocio = $negocio;
+        $this->perfil = $perfil;
     }
 
     //criar os metodos q o framework já fornece. os nomes tem de ser iguais
@@ -21,28 +21,28 @@ class NegociosController extends BaseController
 
 
         //fazer a consulta
-        $negocios = $this->negocio->orderBy($sort, $order);//é igual a select * from negocios orderby nome
+        $perfis = $this->perfil->orderBy($sort, $order);//é igual a select * from perfis orderby nome
 
         //filtro
         if(Input::has('nome')){
-            $negocios = $negocios->where('nome', 'LIKE', "%" . Input::get('nome') . "%");
+            $perfis = $perfis->where('nome', 'LIKE', "%" . Input::get('nome') . "%");
             $nome = '&nome=' . Input::get('nome');
         }
 
 
-        $negocios = $negocios->paginate(10);//numeros de registos por página
+        $perfis = $perfis->paginate(10);//numeros de registos por página
 
         //para segurar as configutrçaões da página
-        $pagination = $negocios->appends(array(
+        $pagination = $perfis->appends(array(
             'nome' => Input::get('nome'),
             'sort' =>  Input::get('sort'),
             'order' => Input::get('order'),
         ))->links();
 
-        return View::make('negocios.index')
+        return View::make('perfis.index')
             ->with(array(
                 'nome' => Input::get('nome'),
-                'negocios' => $negocios,
+                'perfis' => $perfis,
                 'pagination' => $pagination,
                 'str' => '&order=' . (Input::get('order') == 'asc' || null ? 'desc' : 'asc') . $nome
             ));
@@ -50,13 +50,13 @@ class NegociosController extends BaseController
 
     public function create()
     {
-        return View::make('negocios.create');
+        return View::make('perfis.create');
     }
 
     public function store()
     {
         $input = Input::all();
-        $validator = Negocio::validate($input);
+        $validator = Perfil::validate($input);
 
         if($validator->fails()){//ISTO ESTÁ A DAR PROBLEMA
             return Redirect::back()
@@ -64,9 +64,9 @@ class NegociosController extends BaseController
                 ->withErrors($validator)
                 ->withInput();
         } else{
-            $this->negocio->create($input);
+            $this->perfil->create($input);
 
-            return Redirect::to('negocio')
+            return Redirect::to('perfil')
                 ->with('sucess', Util::message('MSG002'));
         }
 
@@ -75,23 +75,23 @@ class NegociosController extends BaseController
     public function edit($id)
     {
         //verifica se id existe
-        $negocio = $this->negocio->find($id);
-        if(is_null($negocio)){
-            return Redirect::to('negocio')
+        $perfil = $this->perfil->find($id);
+        if(is_null($perfil)){
+            return Redirect::to('perfil')
                 ->with('error', Util::message('MSG003'));
         }
 
-        return View::make('negocios.edit')
-                ->with('negocio', $negocio);
+        return View::make('perfis.edit')
+            ->with('perfil', $perfil);
     }
 
     public function update($id)
     {
         $input = Input::all();
-        $input['id'] = $id;
 
 
-        $validator = Negocio::validate($input);
+
+        $validator = Perfil::validate($input);
 
         if($validator->fails()){//ISTO ESTÁ A DAR PROBLEMA
             return Redirect::back()
@@ -99,9 +99,9 @@ class NegociosController extends BaseController
                 ->withErrors($validator)
                 ->withInput();
         } else{
-            $this->negocio->find($id)->update($input);
+            $this->perfil->find($id)->update($input);
 
-            return Redirect::to('negocio')
+            return Redirect::to('perfil')
                 ->with('success', Util::message('MSG005'));
         }
     }
@@ -109,11 +109,11 @@ class NegociosController extends BaseController
     public function destroy($id)
     {
         try{
-            $this->negocio->find($id)->delete();
-            return Redirect::to('negocio')
+            $this->perfil->find($id)->delete();
+            return Redirect::to('perfil')
                 ->with('success', Util::message('MSG006'));
         } catch (Exception $e){
-            return Redirect::to('negocio')
+            return Redirect::to('perfil')
                 ->with('warning', Util::message('MSG007'));
         }
     }

@@ -11,10 +11,10 @@ class  Perfil extends BaseModel
     );
 
     public function utilizadores(){
-        return $this->hasMany('Utilizador', 'peril_id'); //segue padrão do Laravel
+        return $this->hasMany('Utilizador'); //segue padrão do Laravel
     }
 
     public function acoes(){
-        return $this->belongsToMany('Acao', 'acoes_perfis', 'perfil_id', 'acao_id');
+        return $this->belongsToMany('Acao', 'acoes_perfis');
     }
 }

@@ -7,7 +7,7 @@ class NegocioTableSeeder extends Seeder
         DB::table('negocios')->delete();//apaga tudo o que tem dentro por segurança
 
         Negocio::create(array(
-            'nome' => 'Artesanato',
+            'nome' => '###',
         ));
 
         Negocio::create(array(

@@ -12,7 +12,7 @@ class Negocio extends BaseModel
 
     public function negocios()
     {
-        return $this-> hasMany('Utilizador', 'negocio_id'); //segue padrão do Laravel
+        return $this-> hasMany('Utilizador'); //segue padrão do Laravel
     }
 
 

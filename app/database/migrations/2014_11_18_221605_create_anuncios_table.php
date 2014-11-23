@@ -22,8 +22,7 @@ class CreateAnunciosTable extends Migration {
 			$table->boolean('ativo');
 			$table->boolean('autorizado');
 			$table->boolean('inibir');
-			$table->timestamps();
-
+			
 			$table->foreign('utilizador_id')->references('id')->on('utilizadores')->on_delete('restrict');
 		});
 	}

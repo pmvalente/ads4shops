@@ -12,6 +12,6 @@ class  Acao extends BaseModel
     );
 
     public function perfis(){
-        return $this->belongsToMany('Perfil', 'acoes_perfis', 'acao_id', 'perfil_id');
+        return $this->belongsToMany('Perfil', 'acoes_perfis');
     }
 }

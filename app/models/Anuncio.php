@@ -20,6 +20,6 @@ class Anuncio extends BaseModel
     //relacionamentos
     public function anuncio()
     {
-        return $this->belongsTo('Utilizador', utilizador_id);
+        return $this->belongsTo('Utilizador');
     }
 }

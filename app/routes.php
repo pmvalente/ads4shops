@@ -22,3 +22,4 @@ Route::resource('negocio', 'NegociosController', array('except' =>array('show'))
 Route::resource('perfil', 'PerfisController', array('except' =>array('show')));
 Route::resource('acao', 'AcoesController', array('except' =>array('show')));
 Route::resource('anuncio', 'AnunciosController');
+Route::resource('utilizador', 'UtilizadoresController');

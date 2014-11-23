@@ -16,3 +16,8 @@ $('form[data-confirm]').submit(function() {
         return false;
     }
 });
+
+$('.select').select2({
+	placeholder: 'Selecione uma opção',
+	allowClear:true
+});

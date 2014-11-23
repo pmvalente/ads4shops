@@ -26,4 +26,8 @@ class Negocio extends BaseModel
         return Validator::make($data, self::$rules);
     }
 
+    public static function options()
+    {
+        return array('' => '') + static::orderBy('nome')->lists('nome', 'id');
+    }
 }
